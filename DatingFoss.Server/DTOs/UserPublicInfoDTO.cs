@@ -12,7 +12,7 @@ public class UserPublicInfoDTO
     public PointDTO? Position { get; init; }
 
 
-    [StringLength(maximumLength: 200)]
+    [StringLength(maximumLength: 500)]
     public string? Bio { get; init; }
 
 
