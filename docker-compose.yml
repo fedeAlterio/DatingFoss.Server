@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  datingfoss.server:
+    build:
+      context: .
+      dockerfile: DatingFoss.Server/Dockerfile      
+    ports:
+    - "5202:80"
+    - "5201:443"
+    environment:
+      DirectoriesInfo__ApplicationDataPath: "/datingfoss/appdata"
+      ASPNETCORE_URLS: "https://+;http://+"
+      ASPNETCORE_HTTPS_PORT: "5201"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_Kestrel__Certificates__Default__Password: laPassword
+      ASPNETCORE_Kestrel__Certificates__Default__Path: "/https/DatingFoss.Server.pfx"
+    volumes:
+    - ${USERPROFILE}/.aspnet/https:/https/
+    - ${APPDATA}/DatingFoss:/datingfoss/appdata
+
+

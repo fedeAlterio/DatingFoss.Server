@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="6.0.3" />
+    <PackageReference Include="MockQueryable.Core" Version="5.0.1" />
+    <PackageReference Include="MockQueryable.Moq" Version="5.0.1" />
+    <PackageReference Include="Moq" Version="4.17.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DatingFoss.Application\DatingFoss.Application.csproj" />
+    <ProjectReference Include="..\DatingFoss.DataAccess\DatingFoss.Application.csproj" />
+  </ItemGroup>
+
+</Project>

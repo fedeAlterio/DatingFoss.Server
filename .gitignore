@@ -1,0 +1,53 @@
+*.swp
+*.*~
+project.lock.json
+.DS_Store
+*.pyc
+nupkg/
+
+# Visual Studio Code
+.vscode
+
+# Rider
+.idea
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+msbuild.log
+msbuild.err
+msbuild.wrn
+
+# Build results
+DatingFoss.Server/[Dd]ebug/
+DatingFoss.Server/[Dd]ebugPublic/
+DatingFoss.Server/[Rr]elease/
+DatingFoss.Server/[Rr]eleases/
+DatingFoss.Server/x64/
+DatingFoss.Server/x86/
+DatingFoss.Server/build/
+DatingFoss.Server/bld/
+DatingFoss.Server/[Bb]in/
+DatingFoss.Server/[Oo]bj/
+DatingFoss.Server/[Oo]ut/
+DatingFoss.Server/msbuild.log
+DatingFoss.Server/msbuild.err
+DatingFoss.Server/msbuild.wrn
+
+# Visual Studio 2015
+.vs/
