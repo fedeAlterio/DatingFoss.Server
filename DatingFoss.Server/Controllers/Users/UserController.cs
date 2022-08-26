@@ -46,7 +46,7 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("[Action]")]
-    public void ClearAllUsers(IHostApplicationLifetime applicationLifetime)
+    public void ClearAllUsers([FromServices] IHostApplicationLifetime applicationLifetime)
     {
         applicationLifetime.StopApplication();
         //var query = new ClearAllUsersQuery();
