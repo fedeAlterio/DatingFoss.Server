@@ -12,16 +12,34 @@ namespace DatingFoss.Infrastructure.Notifications;
 public class InMemoryNotificationService : INotificationService
 {
     private readonly ConcurrentDictionary<string, UpdateQueue<INotification>> _notificationQueuesByUsername = new();
+    private readonly SemaphoreSlim _ss = new(1);
+    private CancellationTokenSource _tcs = new();    
+    public async Task ClearAll(CancellationToken cancellationToken)
+    {
+        await _ss.WaitAsync();
+        var tcs = _tcs;
+        _notificationQueuesByUsername.Clear();
+
+        _tcs = new();
+        tcs.Cancel();
+        tcs.Dispose();
+
+        _ss.Release();        
+    }
 
     public async Task<INotification> Pull(string username, CancellationToken cancellationToken)
     {
-        var queue = _notificationQueuesByUsername.GetValueOrCreate(username);
+        using var tcs = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, _tcs.Token);
+        cancellationToken = tcs.Token;
+        var queue = _notificationQueuesByUsername.GetValueOrCreate(username);        
         var notification = await queue.Get(cancellationToken);
         return notification;
     }
 
     public async Task Push<T>(string username, Notification<T> notification, CancellationToken cancellationToken)
     {
+        using var tcs = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, _tcs.Token);
+        cancellationToken = tcs.Token;
         var queue = _notificationQueuesByUsername.GetValueOrCreate(username);
         await queue.NotifyNew(notification, cancellationToken);
         await Task.CompletedTask;

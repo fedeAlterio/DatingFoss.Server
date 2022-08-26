@@ -23,6 +23,10 @@ public class ErrorHandlingMiddleware
         {
             await WriteErrorResult(context, HttpStatusCode.BadRequest, ex.Message);
         }
+        catch(OperationCanceledException e)
+        {
+            Console.WriteLine(e.Message + "\n" + e.StackTrace);
+        }
         catch (Exception e)
         {
             Console.WriteLine(e.Message + "\n" + e.StackTrace);

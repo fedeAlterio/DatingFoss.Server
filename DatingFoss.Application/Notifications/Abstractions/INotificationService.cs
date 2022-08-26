@@ -9,4 +9,5 @@ public interface INotificationService
 {
     Task Push<T>(string username, Notification<T> notification, CancellationToken cancellationToken);
     Task<INotification> Pull(string username, CancellationToken cancellationToken);
+    Task ClearAll(CancellationToken cancellationToken);
 }
