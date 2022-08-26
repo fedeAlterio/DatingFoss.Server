@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\DatingFoss.DataAccess\DatingFoss.Application.csproj" />
     <ProjectReference Include="..\..\DatingFoss.Infrastructure\DatingFoss.Infrastructure.csproj" />
     <ProjectReference Include="..\..\DatingFoss.Models\DatingFoss.Domain.csproj" />
     <ProjectReference Include="..\..\DatingFoss.Server\DatingFoss.Server.csproj" />

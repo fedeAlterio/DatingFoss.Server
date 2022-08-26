@@ -46,10 +46,11 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("[Action]")]
-    public async Task ClearAllUsers(CancellationToken cancellationToken)
+    public void ClearAllUsers(IHostApplicationLifetime applicationLifetime)
     {
-        var query = new ClearAllUsersQuery();
-        await _mediator.Send(query, cancellationToken);
+        applicationLifetime.StopApplication();
+        //var query = new ClearAllUsersQuery();
+        //await _mediator.Send(query, cancellationToken);
     }
 
 

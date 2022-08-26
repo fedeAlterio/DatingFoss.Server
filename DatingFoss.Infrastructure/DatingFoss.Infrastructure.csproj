@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DatingFoss.Application\DatingFoss.Application.csproj" />
-    <ProjectReference Include="..\DatingFoss.DataAccess\DatingFoss.Application.csproj" />
   </ItemGroup>
 
 </Project>
