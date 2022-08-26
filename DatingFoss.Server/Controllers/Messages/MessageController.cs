@@ -14,12 +14,12 @@ namespace DatingFoss.Server.Controllers.Messages;
 
 [ApiController]
 [Route("[Controller]")]
-public class MessagesController : ControllerBase
+public class MessageController : ControllerBase
 {
     private readonly IMediator _mediator;
     private readonly IMapper _mapper;
 
-    public MessagesController(IMediator mediator, IMapper mapper)
+    public MessageController(IMediator mediator, IMapper mapper)
     {
         _mediator = mediator;
         _mapper = mapper;
