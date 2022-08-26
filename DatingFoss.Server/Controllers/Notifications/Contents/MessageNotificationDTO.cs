@@ -6,7 +6,7 @@ namespace DatingFoss.Server.Controllers.Notifications.Models;
 [NotificationContentDTO]
 public class MessageNotificationContentDTO
 {
-    public string? From { get; init; }
+    public string? FromUsername { get; init; }
     public string? Content { get; init; }
 
     [JsonPropertyName("timestamp")]
